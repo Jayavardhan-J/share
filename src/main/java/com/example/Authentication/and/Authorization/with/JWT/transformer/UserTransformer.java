@@ -5,10 +5,14 @@ import com.example.Authentication.and.Authorization.with.JWT.dto.responseDTO.Use
 import com.example.Authentication.and.Authorization.with.JWT.model.User;
 
 public class UserTransformer {
-    public static User UserRequestDto(UserRequestDto userRequestDto){
-        return User.builder().name(userRequestDto.getName()).emailId(userRequestDto.getEmailId()).mobile(userRequestDto.getMobile()).build();
+    public static User userRequestDtoToUser(UserRequestDto userRequestDto){
+        return User.builder()
+                .name(userRequestDto.getName())
+                .emailId(userRequestDto.getEmailId())
+                .mobile(userRequestDto.getMobile())
+                .build();
     }
-    public static UserResponseDto UserToResponseDto(User user){
+    public static UserResponseDto userToResponseDto(User user){
         return UserResponseDto.builder()
                 .name(user.getName())
                 .emailId(user.getEmailId())
